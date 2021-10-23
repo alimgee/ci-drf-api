@@ -8,6 +8,7 @@ from .settings import (
 
 @api_view()
 def root_route(request):
+     renderer_classes = [JSONRenderer]
     return Response({
         "message": "Welcome to my drf API!"
     })
