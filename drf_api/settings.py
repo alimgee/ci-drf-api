@@ -15,8 +15,13 @@ import os
 import dj_database_url
 import re
 
-if os.path.exists('env.py'):
-    import env
+# if os.path.exists('env.py'):
+import env
+
+# Add Render.com URL to allowed hosts
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
